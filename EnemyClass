@@ -1,0 +1,160 @@
+Goblin() : super(
+  animationIdleRight: FlameAnimation(), //required
+  animationIdleLeft: FlameAnimation(), // required
+  animationIdleTop: FlameAnimation(),
+  animationIdleBottom: FlameAnimation(),
+  animationRunRight: FlameAnimation(), //required
+  animationRunLeft: FlameAnimation(), //required
+  animationRunTop: FlameAnimation(),
+  animationRunBottom: FlameAnimation(),
+  initDirection: Direction.right,
+  initPosition: Position(x,y),
+  width: 25,
+  height: 25,
+  speed: 1.5,
+  life: 100,
+  collision: Collision(), // Uma area de colisão personalizada
+);
+        
+
+//basic movements
+void moveBottom({double moveSpeed})
+void moveTop({double moveSpeed})
+void moveLeft({double moveSpeed})
+void moveRight({double moveSpeed})
+    
+  // Observará o player quando dentro do raio (visionCells)
+  void seePlayer(
+        {
+         Function(Player) observed,
+         Function() notObserved,
+         int visionCells = 3,
+        }
+  )
+  
+  // Move-se na direção do player quando ele se aproximar do raio visibleCells. Quando chegar ao jogador, o `closePlayer` será acionado; 
+  void seeAndMoveToPlayer(
+     {
+      Function(Player) closePlayer,
+      int visionCells = 3
+     }
+  )
+  
+ // Executa um ataque físico ao jogador, causando o dano configurado com a frequência configurada. Você pode adicionar animações para representar este ataque. (
+     {
+       @required double damage,
+       @required double heightArea,
+       @required double widthArea,
+       int interval = 1000,
+       FlameAnimation.Animation attackEffectRightAnim,
+       FlameAnimation.Animation attackEffectBottomAnim,
+       FlameAnimation.Animation attackEffectLeftAnim,
+       FlameAnimation.Animation attackEffectTopAnim,
+     }
+  )
+
+  // Executa um ataque físico ao jogador, causando o dano configurado com a frequência configurada. Você pode adicionar animações para representar este ataque. 
+  void  simpleAttackMelee (
+     {
+       @required FlameAnimation.Animation animationRight,
+       @required FlameAnimation.Animation animationLeft,
+       @required FlameAnimation.Animation animationTop,
+       @required FlameAnimation.Animation animationBottom,
+       @required FlameAnimation.Animation animationDestroy,
+       @required double width,
+       @required double height,
+       double speed = 1.5,
+       double damage = 1,
+       Direction direction,
+       int interval = 1000,
+     }
+  )
+  // Executa um ataque à distância. Irá adicionar um `FlyingAttackObject` ao jogo e será enviado na direção das configurações e causará algum dano a quem atingir, ou será destruído ao atingir barreiras (colisões definidas). 
+  void seeAndMoveToAttackRange(
+      {
+        Function(Player) positioned,
+        int visionCells = 5
+      }
+  )
+  
+  // Exibe valor do dano no game com uma animação.
+   void showDamage(
+      double damage,
+      {
+         TextConfig config = const TextConfig(
+           fontSize: 10,
+           color: Colors.white,
+         )
+      }
+    )
+    
+   // Adicione ao método `render` se quiser desenhar a área de colisão. 
+    void drawPositionCollision(Canvas canvas)
+    
+      // Dá a direção do jogador em relação a esse inimigo 
+    Direction directionThatPlayerIs()
+    
+    / // Executa uma animação uma vez. 
+    void addFastAnimation(FlameAnimation.Animation animation)
+    
+   // Aplica dano ao inimigo 
+    void receiveDamage(double damage)
+    
+    // Restaura o ponto de vida para o inimigo 
+    void addLife(double life)
+  
+    // Adicione a 'render' se desejar desenhar a área de colisão 
+    void drawPositionCollision(Canvas canvas)
+
+
+   // Desenha a barra de vida padrão, Deve ser usada no método `render`. 
+    void drawDefaultLifeBar(
+      Canvas canvas,
+      {
+        bool drawInBottom = false,
+        double padding = 5,
+        double strokeWidth = 2,
+      }
+    )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        

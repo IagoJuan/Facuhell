@@ -1,0 +1,41 @@
+name: faculhell
+description: A simple game made with bonfire, flame and flutter.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  bonfire: ^0.5.1
+  cupertino_icons: ^0.1.2
+  flame_splash_screen: ^0.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/images/npc/
+    - assets/images/player/
+    - assets/images/enemy/
+    - assets/images/tile/
+    - assets/images/itens/
+    - assets/audio/
+
+  fonts:
+    - family: Normal
+      fonts:
+        - asset: assets/font/font_pixel.ttf
+
+    - family: Title
+      fonts:
+        - asset: assets/font/Pixeled.ttf
